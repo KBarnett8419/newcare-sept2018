@@ -43,7 +43,7 @@ get_header('custom'); ?>
 
 
         <tr valign="top">
-        <th scope="row">Bi-Weekly Hours</th>
+        <th scope="row">Weekly Hours</th>
         <td><input type="text" name="hr_per_wk" value="<?php echo esc_attr( get_option('hr_per_wk') ); ?>" /></td>
         </tr>
 

@@ -30,7 +30,7 @@ $message .= '
             <td colspan="3">'.$_POST['auth_per_start'].' - '.$_POST['auth_per_end'].'</td>
           </tr>
           <tr>
-            <td style="width: 25%;  text-align: right;">Bi-Weekly Hours :</td>
+            <td style="width: 25%;  text-align: right;">Weekly Hours :</td>
             <td style="width: 25%; ">'.get_option('hr_per_wk').'</td>
             <td style="width: 25%;  text-align: right;">Employee Phone :</td>
             <td style="width: 25%; ">'.$_POST['employee_phone'].'</td>
@@ -61,8 +61,8 @@ $message .= '
           $end1 = strtotime($end1);
 
          if ( $end1 < $today1 ) {
-          $begin = $begin->modify( '+14 day' );
-          $end = $end->modify( '+14 day' );
+          $begin = $begin->modify( '+7 day' );
+          $end = $end->modify( '+7 day' );
          }
 
           $end = $end->modify( '+1 day' );

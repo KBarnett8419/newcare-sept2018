@@ -47,7 +47,7 @@ get_header('custom'); ?>
             </td>
           </tr>
           <tr>
-            <td class="text">BI-WEEKLY HOURS</td>
+            <td class="text">WEEKLY HOURS</td>
             <td><input type="text" name="hr_per_wk" value="<?php echo esc_attr( get_option('hr_per_wk') ); ?>" disabled /></td>
             <td class="text">Employee Phone:</td>
             <td><input type="text" name="employee_phone"/></td>
@@ -78,8 +78,8 @@ get_header('custom'); ?>
         $end1 = strtotime($end1);
 
        if ( $end1 < $today1 ) {
-        $begin = $begin->modify( '+14 day' );
-        $end = $end->modify( '+14 day' );
+        $begin = $begin->modify( '+7 day' );
+        $end = $end->modify( '+7 day' );
        }
 
         $end = $end->modify( '+1 day' );
