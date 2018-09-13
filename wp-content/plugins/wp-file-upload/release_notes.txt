@@ -1,0 +1,10 @@
+<span><strong>Version 4.8.0</strong> is another <strong>significant update</strong> introducing some new feature improvements and bugs fixes as follows:</span>
+<ul style="list-style: disc; padding-left: 30px;">
+<li>Added item in <strong>Admin Bar</strong> that displays number of new uploads and redirects to <strong>Uploaded Files</strong> Dashboard page.</li>
+<li>The <strong>Download</strong> button in <strong>Uploaded Files</strong> Dashboard page directly downloads the file, instead of redirecting to the File Browser.</li>
+<li>Several filters and control options have been added in <strong>Uploaded Files</strong> Dashboard page to make it more customizable. The administrators can hide <strong>columns</strong> from the list or change their order. They can also hide <strong>actions</strong> from <strong>Actions</strong> column or change their order.</li>
+<li>The PHP <strong>function redeclaration system</strong> of the plugin has been significantly improved. This enables <strong>more extended customization</strong> and tailoring to user's requests.</li>
+<li>The <strong>search filters</strong> that can be added to the <strong>File Viewer</strong> have been improved to operate for all configurations of the File Viewer. They can now work effectively even when the File Viewer contains <strong>thousands</strong> of files.</li>
+<li>Code has been improved to reduce <strong>"Iptanus Server unreachable..."</strong> errors. Furthermore a link has been added to the error's description that contains instructions for its <strong>resolution</strong>.</li>
+</ul>
+For more details about this version's changes please visit the Release Notes of the plugin's </span><a href="http://www.iptanus.com/wordpress-plugins/wordpress-file-upload/">support page</a><span>.</span>

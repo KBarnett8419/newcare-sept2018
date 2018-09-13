@@ -1,0 +1,54 @@
+.upload_content table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.upload_content td, .upload_content th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+
+.upload_content th {
+	font-weight: bold;
+}
+
+.upload_content th {
+	width: 10%;
+}
+
+.upload_content th.message {
+	width: 20%;
+}
+
+.upload_content th.name {
+	width: 15%;
+}
+
+.add_upload_content {
+	margin: 0 auto;
+}
+
+.add_upload_content .button, .add_upload_content .brief_input {
+	margin-top: 30px;
+}
+
+.add_upload_content .button input {
+margin-right: 10px;
+}
+
+
+.add_upload_content .brief_input p {
+	margin-bottom: 10px;
+}
+
+/* CSS Code - add this to the style.css file */
+.upload_content ul.page-numbers { list-style:none; font-size:12px; margin:  15px 0 0 0 !important; padding: 0; }
+.upload_content .page-numbers li{ display:inline-block; }
+.upload_content .page-numbers li a{ display:block; color: #333; text-decoration: none; float:left; padding:4px 9px; margin-right:7px; border:1px solid #efefef; }
+.upload_content .page-numbers li span.current { display:block; float:left; padding:4px 9px; margin-right:7px; border:1px solid #efefef; background-color:#f5f5f5;  }	
+.upload_content .page-numbers li span.dots { display:block; float:left; padding:4px 9px; margin-right:7px; } 
+.upload_content .page-numbers li a:hover {text-decoration: underline;}

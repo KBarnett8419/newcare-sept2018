@@ -1,0 +1,56 @@
+.timesheet_setting_table {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.timesheet_setting_table th, .timesheet_setting_table td {
+	padding: 10px 15px;
+}
+
+.timesheet_setting_table th {
+	text-align: right;
+}
+
+.update_submit_btn {
+	padding: 10px 20px !important;
+}
+
+.timesheet_form .header_title   {
+text-align: center;
+margin: 0 0 50px 0;
+}
+
+.timesheet_form .table1 {
+	width: 100%;
+	min-width: 800px;
+	margin-bottom: 30px;
+}
+
+.timesheet_form .table1 td {
+	padding: 10px;
+	width: 25%;
+}
+
+.timesheet_form .table1 td.text {
+	padding: 10px 20px 10px 0 !important;
+	text-align: right;
+}
+
+.timesheet_form .table2 {
+	width: 100%;
+	min-width: 800px;
+	margin-bottom: 30px;
+}
+
+.timesheet_form .table2 th {
+	font-weight: bold;
+	text-align: center;
+	background: #eee;
+}
+
+.timesheet_form .table2 th,
+.timesheet_form .table2 td {
+	border: 1px solid #ddd;
+	padding: 10px;
+	width: 20%;
+}
