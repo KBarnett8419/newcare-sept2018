@@ -7,8 +7,6 @@ function my_cool_plugin_create_menu() {
 	//create new top-level menu
 	add_menu_page('Time Sheet Settings', 'Time Sheet', 'administrator', __FILE__, 'time_sheet_settings_page' , null, 999 );
 
-    ;
-
 	//call register settings function
 	add_action( 'admin_init', 'register_time_sheet_settings' );
 }
@@ -73,10 +71,21 @@ function time_sheet_settings_page() {
 
 /* Add CSS Style */
 function timesheet_css () {
-wp_enqueue_style ('timesheet_setting', get_template_directory_uri().'/employee/timesheet.css', array(), '1.0.0', 'all');
+wp_enqueue_style ('timesheet_setting', get_template_directory_uri().'/employee/css/timesheet.css', array(), rand(111,9999), 'all');
+wp_enqueue_style ('jquery-ui-css', '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css', array(), rand(111,9999), 'all');
+wp_enqueue_style ('superv-css', get_template_directory_uri().'/employee/css/super.css', array(), rand(111,9999), 'all');
 }
 
 add_action ('wp_enqueue_scripts', 'timesheet_css');
+
+// Add Custom JS
+function timesheetjs () {
+wp_enqueue_script ('timesheet_js', get_template_directory_uri().'/employee/js/timesheet.js', array('jquery'), rand(111,9999), true);
+wp_enqueue_script ('jquery-ui-js', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'), rand(111,9999), true);
+wp_enqueue_script ('jquery.validate', get_template_directory_uri().'/employee/js/jquery.validate.js', array('jquery'), rand(111,9999), true);
+}
+
+add_action('wp_enqueue_scripts', 'timesheetjs');
 
 /* Send Time Sheet */
     function wpse_send_time_sheet(){
@@ -87,9 +96,12 @@ add_action ('wp_enqueue_scripts', 'timesheet_css');
 }
 add_action('init','wpse_send_time_sheet');
 
-// Add Custom JS
-function timesheetjs () {
-wp_enqueue_script ('timesheet_js', get_template_directory_uri().'/employee/timesheet.js', array('jquery'), rand(111,9999), false);
-}
 
-add_action('wp_enqueue_scripts', 'timesheetjs');
+/* Send Supervisor Form */
+ function wpse_send_supervisor(){
+    if( isset($_POST['superv_action']) == 'superv' ) {
+        require('send_supervisor.php');
+        die();
+    }
+}
+add_action('init','wpse_send_supervisor');

@@ -1,53 +1,100 @@
 <?php
 
-if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['actioned'] ) && $_POST['actioned'] == 'send_timesheet_form' ) {
+if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['superv_action'] ) && $_POST['superv_action'] == 'superv' ) {
 
 $message .= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Time Sheet Report</title>
+<title>Demystifying Email Design</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body style="margin: 0; padding: 0;">
-    <div class="timesheet_form" align="center">
-        <div class="header_title" style="margin: 0 0 50px 0;">
-        <h1>Time Sheet</h1>
-        <h3>NEW CARE ASSOCIATES, LLC</h3>
-        <p>7 GLENWOOD AVE EAST ORANGE, NJ 07017</p>
-        </div>
-        <div class="block1" style="width: 800px;">
-        <table class="table1" style="width: 100%; margin-bottom: 30px;" cellspacing="0" cellpadding="10">
-          <tr>
-            <td style="width: 25%;  text-align: right;">Staff Worker Name :</td>
-            <td style="width: 25%;">'.$_POST['staff_name'].'</td>
-            <td style="width: 25%;  text-align: right;">Pay Period Start Date :</td>
-            <td style="width: 25%; ">'.get_option('pay_period_start').'</td>
-          </tr>
-          <tr>
-            <td style="width: 25%;  text-align: right;">Client Name :</td>
-            <td style="width: 25%; ">'.$_POST['client_name'].'</td>
-            <td style="width: 25%;  text-align: right;">Pay Period End Date :</td>
-            <td style="width: 25%; ">'.get_option('pay_period_end').'</td>
-          </tr>
-          <tr>
-            <td style="width: 25%;  text-align: right;">Authorization Period :</td>
-            <td colspan="3">'.$_POST['auth_per_start'].' - '.$_POST['auth_per_end'].'</td>
-          </tr>
-          <tr>
-            <td style="width: 25%;  text-align: right;">Weekly Hours :</td>
-            <td style="width: 25%; ">'.get_option('hr_per_wk').'</td>
-            <td style="width: 25%;  text-align: right;">Employee Phone :</td>
-            <td style="width: 25%; ">'.$_POST['employee_phone'].'</td>
-          </tr>
-          <tr>
-            <td style="width: 25%;  text-align: right;">Service Provided :</td>
-            <td style="width: 25%; ">'.get_option('service_provided').'</td>
-            <td style="width: 25%;  text-align: right;">Employee Email:</td>
-            <td style="width: 25%; ">'.$_POST['employee_email'].'</td>
-          </tr>
-        </table>
-        <table class="table2" style="width: 800px; margin-bottom: 30px;" cellspacing="0" cellpadding="10">
+<table border="0" cellpadding="5" style="font-size: 16px;" cellspacing="0" width="600">
+<tr>
+<td><h3>SUPERVISOR PROGRESS NOTES</h3></td>
+</tr>
+<tr>
+<td><b>Your Email Address:</b> '.$_POST['sp-email'].'</td>
+</tr>
+<tr>
+<td><b>Youth Name:</b> '.$_POST['sp-youthname'].'</td>
+</tr>
+<tr>
+<td><b>Supervisor Name:</b> '.$_POST['sp-supname'].'</td>
+</tr>
+<tr>
+<td><b>Tech Name:</b> '.$_POST['sp-techname'].'</td>
+</tr>
+<tr>
+<td><b>Authorization Date:</b> '.$_POST['sp-authdate'].'</td>
+</tr>
+<tr>
+<td><b>Case Manager:</b> '.$_POST['sp-casemg'].'</td>
+</tr>
+<tr>
+<td><b>Visit Date:</b> '.$_POST['sp-visitdate'].'</td>
+</tr>
+<tr>
+<td><b>Session Time:</b> '.$_POST['sp-sessiontime'].'</td>
+</tr>
+<tr>
+<td><b>Diagnosis:</b> '.$_POST['sp-diagnosis'].'</td>
+</tr>
+<tr>
+<td><b><u>Progress Notes</u></b></td>
+</tr>
+<tr>
+<td><b>Youth progress since services start:</b><br> '.$_POST['sp-youthprog'].'</td>
+</tr>
+<tr>
+<td><b>Changes on the medication:</b> <br>'.$_POST['sp-changemed'].'</td>
+</tr>
+<tr>
+<td><b>Goals worked this week:</b><br> '.$_POST['sp-goalwrk'].'</td>
+</tr>
+<tr>
+<td><b>Strategies and techniques being used by TECH during this week:</b> <br>'.$_POST['sp-strattech'].'</td>
+</tr>
+<tr>
+<td><b>Any crisis/incident situation that happened and how was handled:</b><br> '.$_POST['sp-crisis'].'</td>
+</tr>
+<tr>
+<td><h3>TIME SHEET REPORT</h3></td>
+</tr>
+<tr>
+<td><b>Staff Worker Name:</b> '.$_POST['staff_name'].'</td>
+</tr>
+<tr>
+<td><b>Youth Name:</b> '.$_POST['client_name'].'</td>
+</tr>
+<tr>
+<td><b>Authorization Period:</b> '.$_POST['auth_per_start'].' - '.$_POST['auth_per_end'].'</td>
+</tr>
+<tr>
+<td><b>Service Provided:</b> '.$_POST['service_provided'].'</td>
+</tr>
+<tr>
+<td><b>Pay Period Start Date:</b> '.get_option('pay_period_start').'</td>
+</tr>
+<tr>
+<td><b>Pay Period End Date:</b> '.get_option('pay_period_end').'</td>
+</tr>
+<tr>
+<td><b>Weekly Hours:</b> '.get_option('hr_per_wk').'</td>
+</tr>
+<tr>
+<td><b>Employee Phone:</b> '.$_POST['employee_phone'].'</td>
+</tr>
+<tr>
+<td><b>Employee Email:</b> '.$_POST['employee_email'].'</td>
+</tr>
+<tr>
+<td><b>Note:</b><br> '.$_POST['note'].'</td>
+</tr>
+</table>
+    
+        <table border="1" cellpadding="5" style="font-size: 16px; margin: 50px 0 0 0;" cellspacing="0" width="600">
           <tr>
             <th style="border: 1px solid #ddd;  width: 20%; background: #eee;">Day</th>
             <th style="border: 1px solid #ddd;  width: 20%; background: #eee;">Date</th>
@@ -80,17 +127,13 @@ $message .= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "htt
             <td style="border: 1px solid #ddd;  width: 20%;">'.$_POST['tothrs_totalhour'].'</td>
           </tr>
 
-        </table>
-        <p style="text-align: left;"><b>Explanation for overage:</b> '.$_POST['explain_ftwk'].'</p>
-        <p style="text-align: left;"><b>Notes:</b> '.$_POST['note'].'</p>
-        </div>
-    </div>';
+        </table>';
 
 
 $message .= '</body></html>';
 
 $staff_name = $_POST["staff_name"];
-$employee_email = $_POST["employee_email"];
+$employee_email = $_POST['sp-email'];
 
 
 require_once( get_template_directory() . '/employee/php_mailer/class.phpmailer.php');
@@ -106,10 +149,10 @@ $mail->IsHTML(true);
 $mail->Username = "admin@newcarenj.org";
 $mail->Password = "Admin@123";
 $mail->SetFrom("admin@newcarenj.org");
-$mail->Subject = "Time Sheet Report from $staff_name";
+$mail->Subject = "Supervisor Progress Notes and Time Sheet Report from $staff_name";
 $mail->Body = $message;
 $mail->AddAddress("documents@newcarenj.org");
-$mail->AddAddress("$employee_email");
+$mail->AddAddress($employee_email);
 
  if(!$mail->Send())
     {
@@ -117,12 +160,13 @@ $mail->AddAddress("$employee_email");
     }
     else
     {
-  header("Location: https://newcarenj.org/timsht/?results=success");
-	die();
+  header("Location: https://newcarenj.org/supervisor-progress-notes/?results=success");
+  die();
     }
 
 } else {
-  header("Location: https://newcarenj.org/timsht/?results=fail");
-	die();
-	}
+  
+  header("Location: https://newcarenj.org/supervisor-progress-notes/?results=fail");
+  die();
+  }
 

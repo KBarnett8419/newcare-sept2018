@@ -1,0 +1,57 @@
+#suprb {
+  margin: 50px auto;
+  max-width: 600px;
+  width: 100%;
+}
+#suprb .title {
+  text-align: center;
+}
+#suprb .content {
+  padding: 30px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  margin-top: 30px;
+}
+#suprb .content .intx {
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: block;
+}
+#suprb .content .infild {
+  margin-bottom: 20px;
+}
+#suprb .content .infild input[type=text],
+#suprb .content .infild input[type=email] {
+  width: 95%;
+  padding: 10px;
+}
+#suprb .content .infild textarea {
+  width: 90%;
+  height: 150px;
+  padding: 12px 20px;
+  resize: none;
+}
+#suprb .content .rqur {
+  color: red;
+}
+#suprb .content .btnnext {
+  margin-top: 30px;
+}
+#suprb .content .btnnext .next {
+  padding: 10px 50px;
+}
+#suprb .content label.error,
+.timesheet_form label.error {
+  color: red;
+  margin-top:10px;
+  display: block;
+}
+#suprb .content input[type=text].error,
+#suprb .content input[type=email].error,
+#suprb .content textarea.error,
+.timesheet_form input[type=text].error,
+.timesheet_form input[type=email].error,
+.timesheet_form textarea.error {
+  border: 1px solid red;
+}
+

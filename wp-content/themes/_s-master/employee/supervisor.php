@@ -1,35 +1,128 @@
 <?php
 /**
-* Template Name: Time Sheet Form
-*
-* @package WordPress
-* @subpackage Chorui
-* @since Chorui 1.0
+* Template Name: Supervisor Form
 */
 get_header('custom'); ?>
 
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
-    <div class="timesheet_form" style="margin: 0 25px; font-family: sans-serif;" align="center">
-        <div class="header_title">
-        <h1 style="margin: 100px 0 0 0; font-size: 25px;">Time Sheet</h1>
-        <p>NEW CARE ASSOCIATES, LLC</p>
-        <p>7 GLENWOOD AVE EAST ORANGE, NJ 07017</p>
-        <h3 style="color:red;">Please enter the exact time you worked followed with AM or PM.</h3>
-        </div>
-        <div class="block1">
+<form action="<?php echo esc_url( home_url( '/' ) ); ?>" id="timshtfrm" method="post">
+<!-- Supervisor Form -->          
+
+<div id="suprb" style="padding-top: 50px;">
+    <div class="title">
+    <h2>SUPERVISOR PROGRESS NOTES</h2>
+    <p>Fill out all required fields of the Progress Notes and click NEXT to fill out and submit your Time Sheet. You will not be able to move to the next screen if information is missing.</p>
+
         <?php if ($_GET['results'] == "success"): ?>
         <p style="color: green; margin-bottom: 20px;">Message sent successfully</p>
         <?php elseif ($_GET['results'] == "fail"): ?>
         <p style="color: red; margin-bottom: 20px;">Failed to send message</p>
         <?php endif; ?>
 
+    </div>
+    
+    <div class="content">
+
+      <label class="intx">Your Email Address <span class="rqur">*</span> </label>
+      <div class="infild">
+        <input type="email" name="sp-email" required>
+      </div>
+
+      <label class="intx">Youth Name <span class="rqur">*</span> </label>
+      <div class="infild">
+        <input type="text" name="sp-youthname" required>
+      </div>
+
+      <label class="intx">Supervisor Name <span class="rqur">*</span> </label>
+      <div class="infild">
+        <input type="text" name="sp-supname" required>
+      </div>    
+
+      <label class="intx">Tech Name <span class="rqur">*</span> </label>
+      <div class="infild">
+        <input type="text" name="sp-techname" required>
+      </div>   
+
+      <label class="intx">Authorization Date <span class="rqur">*</span> </label>
+      <div class="infild">
+        <input type="text" name="sp-authdate" id="datepicker" required>
+      </div>  
+
+      <label class="intx">Case Manager <span class="rqur">*</span> </label>
+      <div class="infild">
+        <input type="text" name="sp-casemg" required>
+      </div>  
+
+      <label class="intx">Visit Date <span class="rqur">*</span> </label>
+      <div class="infild">
+        <input type="text" name="sp-visitdate" id="datepicker1" required>
+      </div> 
+
+      <label class="intx">Session Time <span class="rqur">*</span> </label>
+      <div class="infild">
+        <input type="text" name="sp-sessiontime" required>
+      </div> 
+
+      <label class="intx">Diagnosis <span class="rqur">*</span> </label>
+      <div class="infild">
+        <input type="text" name="sp-diagnosis" required>
+      </div> 
+
+       <h3 style="margin: 20px 0;">Progress Notes</h3>
+
+      <label class="intx">Youth progress since services start <span class="rqur">*</span> </label>
+      <div class="infild">
+        <textarea name="sp-youthprog" required></textarea>
+      </div> 
+
+      <label class="intx">Changes on the medication (if applicable) <span class="rqur">*</span> </label>
+      <div class="infild">
+        <textarea name="sp-changemed" required></textarea>
+      </div>  
+      
+      <label class="intx">Goals worked this week <span class="rqur">*</span> </label>
+      <div class="infild">
+        <textarea name="sp-goalwrk" required></textarea>
+      </div>  
+
+      <label class="intx">Strategies and techniques being used by TECH during this week <span class="rqur">*</span> </label>
+      <div class="infild">
+        <textarea name="sp-strattech" required></textarea>
+      </div>       
+
+      <label class="intx">Any crisis/incident situation that happened and how was handled <span class="rqur">*</span> </label>
+      <div class="infild">
+        <textarea name="sp-crisis" required></textarea>
+      </div> 
+
+      <div>
+          <input type="checkbox" name="agree" value="Yes" checked> BY SUBMITTING, I CERTIFY THAT ALL INFORMATION SUBMITTED IS TRUE TO THE BEST OF MY KNOWLEDGE. I UNDERSTAND THAT FALSIFYING THIS INFORMATION RESULTS IN CONSEQUENCES IN WHICH I AM SOLELY RESPONSIBLE.
+      </div>
+
+      <div align="center" class="btnnext">
+        <input type="button" class="superv_next" value="NEXT">
+      </div>
+    </div>
+  </div> <!-- Supervisor Form End -->   
+
+    
+    <!-- Time Sheet Form -->   
+    <div class="timesheet_form" style="margin: 0 25px; font-family: sans-serif; display: none" align="center">
+        <div class="header_title">
+        <h1 style="margin: 100px 0 0 0; font-size: 25px;">Time Sheet</h1>
+        <p>NEW CARE ASSOCIATES, LLC</p>
+        <p>7 GLENWOOD AVE EAST ORANGE, NJ 07017</p>
+        <h3 style="color:red;">Please enter the exact time you worked followed with AM or PM.</h3>
+        <h3 id="visitdate" style="color: red"></h3>
+        </div>
+        <div class="block1">
+
 <div class="time-overflow" style="overflow-x: auto;">
 
-  <p class="mobile-timesheet" style="color: #9b1e2d; text-align: center; margin: 0 0 30px 0;">Mobile / Tablet Users: Scroll right to access entire table</p>
+   <p class="mobile-timesheet" style="color: #9b1e2d; text-align: center; margin: 0 0 30px 0;">Mobile / Tablet Users: Scroll right to access entire table</p>
 
-        <form action="<?php echo esc_url( home_url( '/' ) ); ?>" id="timshtfrm" method="post">
-        <table class="table1">
+          <table class="table1">
           <tr>
             <td class="text">STAFF WORKER NAME</td>
             <td><input type="text" name="staff_name" required></td>
@@ -81,18 +174,6 @@ get_header('custom'); ?>
         $begin = new DateTime( get_option('pay_period_start') );
         $end = new DateTime( get_option('pay_period_end') );
 
-       /* $end1 = $end->format('Y-m-d');
-        $begin1 = $begin->format('Y-m-d');
-        echo $today1 = strtotime($today);
-        $begin1 = strtotime($begin1);
-        $end1 = strtotime($end1);
-
-       if ( $end1 < $today1 ) {
-          $begin = new DateTime( get_option('pay_period_end') );
-          $begin = $begin->modify( '+1 day' );
-          $end = $end->modify( '+7 day' );
-       }*/
-
         $end = $end->modify( '+1 day' );
         $interval =  new DateInterval('P1D');;
         $period = new DatePeriod($begin, $interval, $end);
@@ -128,16 +209,16 @@ get_header('custom'); ?>
         <input type='hidden' value="" name="explain_snwk" class="explain_snwk" />
 
       <div class="timesheet-submit" style="text-align: center;">
-        <input type="hidden" name="actioned" value="send_timesheet_form">
+        <input type="hidden" name="superv_action" value="superv">
         <input type="button" name="send_timesheet" class="update_submit_btn" value="Send Time Sheet">
       </div>
 
         </div>
-        </form>
         </div>
     </div>
+    <!-- Time Sheet Form End --> 
 
-
+</form>
 
     </main><!-- #main -->
     </div><!-- #primary -->
